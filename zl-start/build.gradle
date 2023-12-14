@@ -1,0 +1,15 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'maven-publish'
+
+dependencies {
+    implementation project(':zl-controller')
+    implementation project(':zl-application')
+    implementation project(':zl-client')
+    implementation project(':zl-domain')
+    implementation project(':zl-infrastructure')
+    testImplementation 'org.springframework.security:spring-security-test'
+}
+
+jar.dependsOn(check)

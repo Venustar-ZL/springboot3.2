@@ -1,1 +1,8 @@
 rootProject.name = 'springboot3'
+
+include 'zl-application'
+include 'zl-client'
+include 'zl-controller'
+include 'zl-domain'
+include 'zl-infrastructure'
+include 'zl-start'
