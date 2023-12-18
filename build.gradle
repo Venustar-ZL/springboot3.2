@@ -18,11 +18,15 @@ plugins {
 
 apply from: 'version.gradle'
 
+tasks.bootJar {
+    enabled = false
+}
+
+
 allprojects {
 
     apply plugin: 'checkstyle'
     apply plugin: 'java-library'
-    apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
     group 'com.zl.learn'
