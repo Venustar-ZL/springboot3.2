@@ -28,6 +28,7 @@ allprojects {
     apply plugin: 'checkstyle'
     apply plugin: 'java-library'
     apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
 
     group 'com.zl.learn'
     version '1.0-SNAPSHOT'
@@ -65,6 +66,11 @@ allprojects {
 subprojects {
 
     dependencies {
+
+        compileOnly("org.projectlombok:lombok")
+        annotationProcessor("org.projectlombok:lombok")
+        testAnnotationProcessor("org.projectlombok:lombok")
+
         testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
         testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
         testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
@@ -81,6 +87,13 @@ subprojects {
 
         // openfeign
         implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
+
+        // security
+        implementation 'org.springframework.boot:spring-boot-starter-security'
+
+        // springdoc
+        implementation 'org.springdoc:springdoc-openapi-ui'
+        implementation 'org.springdoc:springdoc-openapi-security'
     }
 
     test {
