@@ -6,6 +6,13 @@ buildscript {
     ext {
         springCloudVersion = "2023.0.0"
     }
+
+    repositories {
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenLocal()
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone'}
+    }
 }
 
 plugins {
@@ -80,7 +87,6 @@ subprojects {
         implementation("org.springframework.boot:spring-boot-starter-aop")
         implementation("org.springframework.boot:spring-boot-starter-validation")
         implementation("org.springframework.boot:spring-boot-starter-actuator")
-        implementation('org.springframework.boot:spring-boot-starter-websocket')
 
         //fastjson2
         implementation("com.alibaba.fastjson2:fastjson2")
@@ -90,10 +96,10 @@ subprojects {
 
         // security
         implementation 'org.springframework.boot:spring-boot-starter-security'
+        implementation 'org.springframework.security:spring-security-oauth2-authorization-server'
 
         // springdoc
         implementation 'org.springdoc:springdoc-openapi-ui'
-        implementation 'org.springdoc:springdoc-openapi-security'
     }
 
     test {
